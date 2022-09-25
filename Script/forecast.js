@@ -24,13 +24,6 @@ const getCity = async (city)=>{
 }
 
 
-getCity('nala sopara')
-    .then(data =>{
-        console.log(data.Key);
-        return getWeather(data.Key);
-    }).then(data => console.log(data))
-    .catch(err => console.log(err));
-
 
 
 
