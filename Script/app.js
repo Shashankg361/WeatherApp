@@ -13,8 +13,12 @@ const updateCity = async (city) =>{
 }
 
 const updatingUI = (data) =>{
-    const cityDets = data.cityDets;
-    const weather = data.weather;
+
+    /*const cityDets = data.cityDets;
+    const weather = data.weather;*/
+
+    // destructuring object 
+    const {cityDets,weather} = data ;
 
     console.log(cityDets);
     console.log(weather);
