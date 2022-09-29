@@ -1,6 +1,8 @@
 const cityForm = document.querySelector('.change-location');
 const card = document.querySelector('.card');
-const details = document.querySelector('.details')
+const details = document.querySelector('.details');
+const time = document.querySelector('img.time');
+const icon = document.querySelector('.icon');
 
 
 
@@ -29,7 +31,21 @@ const updatingUI = (data) =>{
         <span>${weather.Temperature.Metric.Value}</span>
         <span>&deg;C</span>
     </div>` ;
+
+    let timeSrc = null ;
+    if(weather.IsDayTime){
+        timeSrc = 'img/day.svg';
+    }else{
+        timeSrc= 'img/night.svg';
+    }
+    time.setAttribute('src',timeSrc);
+
+    icon.innerHTML= `<img src='img/icons/${weather.WeatherIcon}.svg'>`
+
+
 };
+
+
 
 
 
