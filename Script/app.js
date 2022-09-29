@@ -32,13 +32,15 @@ const updatingUI = (data) =>{
         <span>&deg;C</span>
     </div>` ;
 
-    let timeSrc = null ;
+    const result = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
+
+    /*let timeSrc = null ;
     if(weather.IsDayTime){
         timeSrc = 'img/day.svg';
     }else{
         timeSrc= 'img/night.svg';
-    }
-    time.setAttribute('src',timeSrc);
+    }*/
+    time.setAttribute('src',result);
 
     icon.innerHTML= `<img src='img/icons/${weather.WeatherIcon}.svg'>`
 
