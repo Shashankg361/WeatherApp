@@ -10,8 +10,9 @@ const updateCity = async (city) =>{
 
     const cityDets = await getCity(city);
     const weather = await getWeather(cityDets.Key);
+    const stateImg = await getStateImage(cityDets.AdministrativeArea.LocalizedName.toLowerCase());
     
-    return {cityDets,weather} //object short hand notation(we do use in that case when object name and the vaule name is same ) it does works same as object
+    return {cityDets,weather,stateImg} //object short hand notation(we do use in that case when object name and the vaule name is same ) it does works same as object
 }
 
 const updatingUI = (data) =>{
@@ -20,10 +21,11 @@ const updatingUI = (data) =>{
     const weather = data.weather;*/
 
     // destructuring object 
-    const {cityDets,weather} = data ;
+    const {cityDets,weather,stateImg} = data ;
 
     console.log(cityDets);
     console.log(weather);
+    console.log(stateImg);
     details.innerHTML=`
     <h5 class="my-3">${cityDets.EnglishName}</h5>
     <div class="my-3">${weather.WeatherText}</div>
@@ -32,7 +34,8 @@ const updatingUI = (data) =>{
         <span>&deg;C</span>
     </div>` ;
 
-    const result = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
+    const result = stateImg.results[0].urls.regular;
+    //const result = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
 
     /*let timeSrc = null ;
     if(weather.IsDayTime){
