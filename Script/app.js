@@ -5,8 +5,6 @@ const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon');
 const stateTxt = document.querySelector('.state');
 
-
-
 const updateCity = async (city) =>{
 
     const cityDets = await getCity(city);
@@ -66,8 +64,6 @@ cityForm.addEventListener('submit', e =>{
     updateCity(city)
         .then(data => updatingUI(data))
         .catch(err => console.log(err));
-    
-
     
 })
 
