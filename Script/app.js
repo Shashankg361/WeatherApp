@@ -3,6 +3,7 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon');
+const stateTxt = document.querySelector('.state');
 
 
 
@@ -26,6 +27,7 @@ const updatingUI = (data) =>{
     console.log(cityDets);
     console.log(weather);
     console.log(stateImg);
+    stateTxt.innerHTML=`<h5>${cityDets.AdministrativeArea.LocalizedName}</h5>`
     details.innerHTML=`
     <h5 class="my-3">${cityDets.EnglishName}</h5>
     <div class="my-3">${weather.WeatherText}</div>
@@ -47,11 +49,8 @@ const updatingUI = (data) =>{
 
     icon.innerHTML= `<img src='img/icons/${weather.WeatherIcon}.svg'>`
 
-
+    card.classList.remove('d-none');
 };
-
-
-
 
 
 cityForm.addEventListener('submit', e =>{
@@ -67,6 +66,9 @@ cityForm.addEventListener('submit', e =>{
     updateCity(city)
         .then(data => updatingUI(data))
         .catch(err => console.log(err));
+    
+
+    
 })
 
 
