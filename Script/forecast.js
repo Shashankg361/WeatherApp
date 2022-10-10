@@ -1,5 +1,6 @@
-const key = '9tT10coDMiwM4qrlGbTUUrdWcFS9OK5f';
-const clientId = '53pr5NfwyLwM82_2uhyUC4tC8BjgH4yTO-7fkIoEQ3w';
+require("dotenv").config();
+const key = process.env.key;
+const clientId = process.env.clientId;
 
 const getWeather = async (id) => {
     const base = 'https://dataservice.accuweather.com/currentconditions/v1/';
